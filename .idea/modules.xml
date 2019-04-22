@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/learn-spring.iml" filepath="$PROJECT_DIR$/.idea/learn-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yh-orm/yhorm.iml" filepath="$PROJECT_DIR$/yh-orm/yhorm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yh-spring/yhspring.iml" filepath="$PROJECT_DIR$/yh-spring/yhspring.iml" />
+    </modules>
+  </component>
+</project>
