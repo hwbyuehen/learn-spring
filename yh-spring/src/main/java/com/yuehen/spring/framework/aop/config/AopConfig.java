@@ -9,6 +9,7 @@ public class AopConfig {
     //代理前後方法，異常，類
     private String aspectBefore;
     private String aspectAfter;
+    private String aspectAround;
     private String aspectClass;
     private String aspectAfterThrow;
     private String aspectAfterThrowingName;

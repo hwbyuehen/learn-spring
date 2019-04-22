@@ -2,6 +2,7 @@ package com.yuehen.spring.framework.aop.support;
 
 import com.yuehen.spring.framework.aop.aspect.AfterReturningAdviceInterceptor;
 import com.yuehen.spring.framework.aop.aspect.AfterThrowingAdviceInterceptor;
+import com.yuehen.spring.framework.aop.aspect.MethodAroundAdviceInterceptor;
 import com.yuehen.spring.framework.aop.aspect.MethodBeforeAdviceInterceptor;
 import com.yuehen.spring.framework.aop.config.AopConfig;
 
@@ -103,6 +104,11 @@ public class AdvisedSupport {
                     if (!(null == config.getAspectAfter() || "".equals(config.getAspectAfter()))) {
                         //創建一個Advice
                         advices.add(new AfterReturningAdviceInterceptor(aspectMethods.get(config.getAspectAfter()), aspectClass.newInstance()));
+                    }
+                    //around
+                    if (!(null == config.getAspectAround() || "".equals(config.getAspectAround()))) {
+                        //創建一個Advice
+                        advices.add(new MethodAroundAdviceInterceptor(aspectMethods.get(config.getAspectAround()), aspectClass.newInstance()));
                     }
                     //afterThrowing
                     if(!(null == config.getAspectAfterThrow() || "".equals(config.getAspectAfterThrow()))) {

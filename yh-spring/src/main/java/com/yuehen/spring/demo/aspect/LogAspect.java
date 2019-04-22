@@ -1,6 +1,7 @@
 package com.yuehen.spring.demo.aspect;
 
 import com.yuehen.spring.framework.aop.aspect.JoinPoint;
+import com.yuehen.spring.framework.aop.intercept.MethodInvocation;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -25,6 +26,21 @@ public class LogAspect {
         long startTime = (Long) joinPoint.getUserAttribute("startTime_" + joinPoint.getMethod().getName());
         long endTime = System.currentTimeMillis();
         System.out.println("use time :" + (endTime - startTime));
+    }
+
+    public void around(JoinPoint joinPoint) {
+        log.info("Invoker before around Method!!! TargetObject:" +  joinPoint.getThis() +
+                " Args:" + Arrays.toString(joinPoint.getArguments()));
+        MethodInvocation methodInvocation = (MethodInvocation)joinPoint;
+        try {
+            methodInvocation.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        log.info("Invoker after around Method!!! TargetObject:" +  joinPoint.getThis() +
+                " Args:" + Arrays.toString(joinPoint.getArguments()));
+
     }
 
     public void afterThrowing(JoinPoint joinPoint, Throwable ex){
